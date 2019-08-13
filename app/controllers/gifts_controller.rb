@@ -2,13 +2,13 @@ class GiftsController < ApplicationController
   before_action :set_gift, only: [:show, :update, :destroy]
   # GET /gifts
   def index
-    @gifts = Gift.where(["title like '%%%s%%' or text like '%%%s%%'", params[:text], params[:text]]).paginate(page: params[:page], per_page: 6)
+    @gifts = find_gifts.paginate(page: params[:page], per_page: 6)
     json_response(@gifts)
   end
 
   # GET /gifts/size
   def size
-    @gifts = Gift.where(["title like '%%%s%%' or text like '%%%s%%'", params[:text], params[:text]])
+    @gifts = find_gifts
     json_response(@gifts.count)
   end
 
@@ -44,5 +44,9 @@ class GiftsController < ApplicationController
 
   def set_gift
     @gift = Gift.find(params[:id])
+  end
+
+  def find_gifts
+    Gift.where(["title like '%%%s%%' or text like '%%%s%%'", gift_params[:text], gift_params[:text]])
   end
 end

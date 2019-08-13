@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Config
 
-Things you may want to cover:
+$ bin/bundle install
+$ bin/bundle install --path vendor/bundle
+$ bin/rails db:migrate
+$ bin/rake db:seed
 
-* Ruby version
+## Testing
 
-* System dependencies
+$ bin/bundle exec rspec
 
-* Configuration
+## Start development server (port 3001)
 
-* Database creation
+$ bin/rails server
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
