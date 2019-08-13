@@ -2,7 +2,7 @@ class GiftListsController < ApplicationController
   before_action :set_gift_list, only: [:show, :update, :destroy]
   # GET /gift_lists
   def index
-    @gift_lists = GiftList.all.paginate(page: params[:page], per_page: 20)
+    @gift_lists = GiftList.all.paginate(page: params[:page], per_page: 6)
     json_response(@gift_lists)
   end
 
